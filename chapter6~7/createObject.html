@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>创建对象的几种方式</title>
+</head>
+<body>
+  <script>
+    // factory mode
+    function createPerson(name) {
+        var o = new Object();
+        o.name = name;
+        o.sayName = function() {
+            console.log(this.name);
+        }
+        return o;
+    }
+    var p1 = createPerson('zhuzhu');
+    var p2 = createPerson('xixi');
+
+    // 构造函数模式
+    function Person(name) {
+        this.name = name;
+        this.sayName = function() {
+            console.log(this.name);
+        }
+    }
+    var c1 = new Person('zhuzhu');
+    var c2 = new Person('xixi');
+
+    // prototype mode
+    function Person(){}
+    Person.prototype.name = 'nicholos';
+    Person.prototype.sayName = function() {
+            console.log(this.name);
+    }
+    var r1 = new Person();
+    var r2 = new Person();
+
+   // mixin mode
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype = {
+        constructor: Person,
+        sayName: function() {
+            console.log(this.name);
+        }
+    }
+
+    var c1 = new Person('zhuzhu');
+    var c1 = new Person('xixi');
+    // 动态原型方式
+    function Person(name) {
+        this.name = name;
+        if (typeof this.sayName != 'function') {
+            Person.prototype.sayName = function() {
+                console.log(this.name);
+            }
+        }
+    }
+    var c1 = new Person('xixi');
+    // 寄生构造函数
+    function SpecialArray() {
+        // 创建数组
+        var values = new Array();
+        // 添加值
+        values.push.apply(values, arguments);
+        // 添加方法
+        values.toPipedString = function() {
+            return this.join("|");
+        }
+        return values; 
+    }
+    var colors = new SpecialArray("red", "blue", "green");
+    alert(colors.toPipedString());
+    // 稳妥构造函数模式
+    function Person(name) {
+        var o = new Object();
+        // 在这里定义私有变量和函数
+        o.sayName = function() {
+            alert(name);
+        }
+        return o;
+    }
+    var p1 = Person('haha');
+  </script> 
+</body>
+</html>

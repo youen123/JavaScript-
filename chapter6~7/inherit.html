@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+<body>
+<script>
+function SuperType(name) {
+    this.name = name;
+    this.colors = ["res", "green"];
+}
+SuperType.prototype.sayName = function() {
+    alert(this.name);
+}
+function SubType(name, age) {
+    SuperType.call(this, name);
+    this.age = age;
+}
+SubType.prototype = new SuperType();
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function() {
+    alert(this.age);
+}
+var instance = new SubType("nicholos", 13);
+
+// 原型式继承
+function object(o) {
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+
+</script>
+</body>
+</html>
