@@ -14,7 +14,8 @@
 4.如果script标签引用了外部脚本，就下载该脚本，否则直接执行  
 5.执行完毕，控制权交还给渲染引擎，恢复往下解析HTML网页
 
-script属性：  
+script属性： 
+ 
 - async
    - 不会阻塞网页，边下载边往下解析
    - 下载完成后执行，不保证顺序，谁先下完先执行
@@ -55,14 +56,14 @@ Number()/parseInt()/parseFloat()
 - 相等操作符 == & ===  
 == 转换后再比较  
 === 不转换直接比较  
- - ==
-  - 如果一个操作数是布尔值，转换为数值
-  - 如果一个操作数是字符串，另一个操作数是数值，字符串先转数值
-  - 如果一个是对象，另一个不是，就调用对象的valueOf方法
-  - undefined == null
-  - null和undefined不转换了
-  - NaN的相等操作符返回NaN，不等返回true
-  - 两个都是对象，比较是不是指向同一个对象
+ * ==
+	  - 如果一个操作数是布尔值，转换为数值
+	  - 如果一个操作数是字符串，另一个操作数是数值，字符串先转数值
+	  - 如果一个是对象，另一个不是，就调用对象的valueOf方法
+	  - undefined == null
+	  - null和undefined不转换了
+	  - NaN的相等操作符返回NaN，不等返回true
+	  - 两个都是对象，比较是不是指向同一个对象
 - 函数
  - arguments对象   
   是一个类数组对象（可用下标的方式去访问其中的元素），arguments的值与对应命名参数的值保持同步。
@@ -98,6 +99,7 @@ Number()/parseInt()/parseFloat()
 
 ### 引用类型
 object  
+
 - 通过对象字面量定义对象时，实际上不会调用Object构造函数
 -  .和[]都可以访问对象属性  
  []支持变量访问属性  
@@ -143,13 +145,15 @@ object
 - 归并方法
  - reduce 从第一项开始遍历到最后
  - reduceRight 从最后一项遍历到第一项
+ 
  ```
  	var sum = arr.reduce(function(prev, current, index, array) {
  		return prev + current;
  	})
  ```
  
-	两个参数： 
+	两个参数：  
+	 
  	- 在每一项上调用的函数
  	- 归并基础的初始值 
   
@@ -199,6 +203,7 @@ object
   	- source 正则表达式字面量的字符串表示
   - 实例方法
   	- exec() // 查找字符串
+  	
   	```
   	var text = "mom and dad and baby";
   	var pattern = /mom( and dad( and baby)?)?/gi;
@@ -214,6 +219,7 @@ object
    
 	- test // 检测是否有匹配  
    pattern.test(string)
+   
  - 构造函数的属性
  	- input //最近匹配的字符串
  	- lastMatch // 最近一次的匹配项
@@ -223,6 +229,7 @@ object
 
 #### Function 类型
 函数是对象，函数名实际是指向函数对象的指针。
+
 - 变量提升
   在代码执行前，会发生变量的函数声明提升，所以在函数声明前调用函数是可以的，函数表达式，则必须等到解析器执行到那时，才会被解释执行
 - 函数属性  
@@ -231,6 +238,7 @@ object
 	  callee //指针，指向它所在的函数，严格模式下会出错
 	- this  
 	 引用的是函数的执行环境对象
+	 
 	 ```
 	 window.color = "red";
 	 var o = {color: "blue"};
@@ -248,6 +256,7 @@ object
 	不可枚举，
 	
 	在特定的作用域调用函数
+	
 	- apply   
 		两个参数：
 		- 运行函数的作用域
@@ -257,6 +266,7 @@ object
 		- 函数参数，依次列举所有的参数，不是数组
    对象不需要与方法有任何的耦合
    - bind
+   
    	```
    	function sayColor() {
    			alert(this.color);
@@ -267,6 +277,7 @@ object
    	
 ### 基本包装类型
 javaScript提供的3种特殊的引用类型：Boolean，Number和String
+
 ```
 var s1 = "some text";
 var s2 = s1.substring(2);
@@ -283,6 +294,7 @@ var s2 = s1.substring(2);
  而基本包装类型的对象，则在代码执行的瞬间产生，使用，然后销毁，所以我们不能在运行时为基本类型添加属性和方法
  
 * 基本包装类型的实例  typeof会返回“object”，在布尔表达式中为true
+
 ```
 var falseObject = new Boolean(false);
 var result = falseObject && true; // true
@@ -299,6 +311,7 @@ var res = false && true; // false
 
 #### String 
 字符方法
+
 - charAt
 - charCodeAt
 - [] // str[1], es5+
@@ -329,6 +342,7 @@ var res = false && true; // false
 内置对象： Object,Array,String,Global,Math
 #### global 
 在全局定义的属性和函数都是Global对象的属性
+
 - isNaN
 - isFinite
 - ...
