@@ -2,7 +2,8 @@
 
 #### 表单的基础知识
 表单对应的是HTMLFormElement类型。  
-HTMLFormElement的属性：  
+HTMLFormElement的属性： 
+ 
 - acceptCharset
 - action 
 - elements
@@ -33,6 +34,7 @@ JS用`submit()`进行提交，不会触发submit事件，要记得在调用此�
 
 ##### 重置表单  
 重置按钮
+
 ```
 <!--通用重置按钮-->
 <input type="reset" value="reset form">
@@ -40,6 +42,7 @@ JS用`submit()`进行提交，不会触发submit事件，要记得在调用此�
 <!--自定义重置按钮-->
 <button type="reset">reset form</button>
 ```
+
 JS用`form.reset()`重置表单
 
 #### 表单字段
@@ -47,6 +50,7 @@ JS用`form.reset()`重置表单
 form.elements[0] 或 form.elements[name]  
 
 表单字段属性  
+
 - disabled 是否被禁用
 - form 指向当前表单
 - name 字段名称
@@ -56,10 +60,12 @@ form.elements[0] 或 form.elements[name]
 - value 值
 
 表单字段方法  
+
 - focus()
 - blur()
 
-表单字段事件  
+表单字段事件 
+ 
 - blur
 - change
 - focus
@@ -70,7 +76,8 @@ input 或 textarea
 select()
 select事件  
 
-取得选择的文本  
+取得选择的文本 
+ 
 - textbox.selectionStart 和 textbox.selectionEnd
 - document.selection
 
@@ -85,6 +92,7 @@ function getSelectedText(textbox) {
 ```
 
 选择部分文本  
+
 - setSelectionRange()
 - createTextRange() moveStart() moveEnd()
 
@@ -109,7 +117,8 @@ function getSelectedText(textbox) {
 - 禁用验证 novalidate
 
 #### 选择框脚本
-选择框由<select>和<option>组成。HTMLSelectElement提供下列的属性和方法。
+选择框由`<select>`和`<option>`组成。HTMLSelectElement提供下列的属性和方法。
+
 - add(newOption,relOption) 向控件中插入新的<option>元素 
 - multiple 是否允许多项选择
 - options 控件中所有<option>元素的HTMLCollection
@@ -118,6 +127,7 @@ function getSelectedText(textbox) {
 - size 选择框中可见的行数
 
 HTMLOptionElement 
+
 - index
 - label 
 - selected
@@ -218,6 +228,7 @@ frames['richedit'].document.designMode = "on";
 ##### 富文本选区
 iframe的getSelection() 可以确定实际选择的文本。  
 Selection的属性
+
 - anchorNode 选区起点所在的节点
 - anchorOffset 到达选区起点位置之前跳过的anchorNode中字符数量
 - focusNode 终点所在的节点
