@@ -503,7 +503,7 @@ range2.setEnd(p1, p1.childNodes.length);
 - extractContents()
 - cloneContents()
 - insertNode()
-- surroundContents()
+- surroundContents() 新节点作为范围的父节点插入到原来范围的位置上
 - collapse() 折叠范围，检测是否有空隙
  
  

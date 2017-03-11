@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+<body>
+        <iframe name="richedit" style="heigth: 100px;width: 100px" src="blank.html"></iframe>
+        <div id="richeditelement" contenteditable></div>
+        <script>
+            window.onload = function() {
+                frames["richedit"].document.designMode = "on";
+                frames["richedit"].document.execCommand('bold', false, null);
+                frames["richedit"].document.execCommand('createlink', false, "http://www.wrox.com");
+                frames["richedit"].document.execCommand('formatblock', false, "<h1>");
+            }
+        </script>
+</body>
+</html>
