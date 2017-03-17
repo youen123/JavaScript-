@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv" style="position: absolute; width: 100px; height: 100px;background: yellow"></div>
+    <script>
+        var div = document.getElementById('mydiv');
+        var dragTarget = null,
+            diffX = 0,
+            diffY;
+
+        div.onmousedown = function(e) {
+            dragTarget = div;
+            diffX = e.clientX - e.target.offsetLeft;
+            diffY = e.clientY - e.target.offsetTop;
+        }
+
+        div.onmousemove = function(e) {
+            if (dragTarget) {
+                dragTarget.style.left = (e.clientX - diffX) + "px";
+                dragTarget.style.top = (e.clientY - diffY) + "px";
+            }
+        }
+        div.onmouseup = function(e) {
+            dragTarget = null;
+        }
+    </script>
+</body>
+</html>
