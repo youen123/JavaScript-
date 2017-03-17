@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="droptarget" style="width:500px;height:100px;border: 1px solid #ff99ff;"></div>
+    <!-- <img src="ccx.jpg"  width="400px"/> -->
+    <p draggable="true">hi! drag me!</p>
+    <textarea>asd</textarea>
+    <script>
+    var droptarget = document.getElementById('droptarget');
+    droptarget.addEventListener('drop', function(e) {
+        e.preventDefault();
+        var url = e.dataTransfer.getData("url") || e.dataTransfer.getData("text/uri-list");
+    });
+
+    droptarget.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    });
+
+    droptarget.addEventListener('dragenter', function(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "copy";
+    })  
+    droptarget.addEventListener('dragstart', function(e) {
+        e.dataTransfer.effectAllowed = "copy";
+    })  
+    </script>
+</body>
+</html>

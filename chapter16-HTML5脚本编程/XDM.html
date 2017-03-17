@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+<body>
+        <iframe id="myframe" src="msg.html"></iframe>
+        <script>
+            window.onload = function() {
+                var iframe = document.getElementById("myframe").contentWindow;
+                console.log(iframe);
+                iframe.postMessage('a secret', "http://localhost:8888");
+            }
+            
+            window.onmessage = function(e) {
+                console.log(e.data);
+                console.log(e.source);
+                console.log(e.origin);
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+<body>
+        <script>
+            window.onmessage = function(e) {
+                console.log(e.data);
+                console.log(e.origin);
+                e.source.postMessage("received!", "http://localhost:8888");
+            }
+        
+        </script>
+</body>
+</html>
