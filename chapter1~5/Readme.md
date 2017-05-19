@@ -80,6 +80,10 @@ boolean
  - 无法重载
   因为类型和参数的个数都不能限制  
  - 参数都是按值传递的
+ - 检测是否是函数 typeof / Object.prototype.toString
+ ```
+ Object.prototype.toString.call(f) === "[object Function]"
+ ```
 
 ####  执行环境和作用域
 ###### 执行环境   
