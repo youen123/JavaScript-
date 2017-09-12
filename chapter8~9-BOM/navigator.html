@@ -134,6 +134,7 @@ var client = function() {
 			} else {
 				system.win = RegExp["$1"];
 			}
+		}
 	}
 
 	// 移动设备
@@ -153,7 +154,7 @@ var client = function() {
 
 	// 检测ios版本
 	if (system.mac && ua.indexOf("Mobile") > -1) {
-		if (/CPU(?:iPhone )?OS (\d+_\d+)/.test(ua) {
+		if (/CPU(?:iPhone )?OS (\d+_\d+)/.test(ua)) {
 			system.ios = parseFloat(RegExp.$1.replace("_","."));
 		} else {
 			system.ios = 2; // 猜测版本
@@ -175,6 +176,9 @@ var client = function() {
 		system: system
 	};
 };
+
+var res = client();
+alert(JSON.stringify(res));
 
 </script>	
 </body>
