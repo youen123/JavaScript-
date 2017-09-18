@@ -47,7 +47,7 @@ btn.onclick = null;
 
 ##### DOM2级事件处理程序
 - addEventListener()
-- removeEventListener()
+- removeEventListener() 事件处理程序函数必须和addEventListener中的是同一个
 
 ```
 var btn = document.getElementById("mybtn");
@@ -360,8 +360,9 @@ appendChild(), replaceChild() , insertBefore() 会触发DOMNodeInserted 。会�
 
 #### 模拟事件
 ##### DOM 中的事件模拟
-- createEvent("MouseEvents")
-- initEvent(type,bubbles...)
+- createEvent("MouseEvents") // 创建事件对象
+- initEvent(type,bubbles...) // 初始化事件对象
+- dispatchEvent(event)   // 触发事件
 
 ##### IE中的事件模拟
 - createEventObject() 返回通用的event，用户去设置属性

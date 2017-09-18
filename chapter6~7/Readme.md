@@ -1,4 +1,4 @@
-###JavaScript面向对象的程序设计
+### JavaScript面向对象的程序设计
 
 ##### 属性类型
  两种属性：  
@@ -9,7 +9,7 @@
   	
  - [[Configurable] 	// 能否修改属性
  - [[Enumberable]] // 属性是否可以用for-in遍历
- - [[Writable]] // 能否修改属性的值
+ - [[Writable]] // 能否修改[[value]]
  - [[Value]] // 数据值
  
 ##### 访问器属性

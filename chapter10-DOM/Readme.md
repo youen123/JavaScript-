@@ -1,5 +1,6 @@
 ### DOM 文档对象模型 
 针对HTML和XML文档的一个API
+
 #### 节点层次
 DOM可以将HTML或XML文档描绘成一个由多层节点构成的结构。  
 文档节点是每个文档的根结点。  
@@ -27,7 +28,7 @@ DOM可以将HTML或XML文档描绘成一个由多层节点构成的结构。
 - nodeName
 - nodeValue
 - childNodes 子节点
-childNodes 里保存着一个NodeList对象，类数组对象，保存一组有序的节点。  
+childNodes 里保存着一个NodeList对象，类数组对象，保存一组有序的节点，是动态执行查询的结果。  
 访问NodeList: []或item() // some.childNodes.item(1);
 
 ```
@@ -35,7 +36,7 @@ childNodes 里保存着一个NodeList对象，类数组对象，保存一组有�
 function covertToArray(nodes) {
 	var array = null;
 	try {
-	   	array = Array.prototype.slice.call(nodes, 0);
+	   	array = Array.prototype.slice.call(nodes, 0);  // 针对非IE浏览器
 	} catch(ex) {
 		array = new Array();
 		for (var i = 0, len = nodes.length; i < len; i++) {
@@ -45,13 +46,15 @@ function covertToArray(nodes) {
 	return array;
 }
 ```
+
 节点关系的属性
 
-- parentNode 父节点
+- parentNode
 - previousSibling
 - nextSibling
 - firstChild
 - lastChild
+- ownerDocument 整个文档的文档节点
 
 查找方法
 
@@ -76,7 +79,7 @@ ________        ________        ________
 操作节点：
 
 - appendChild 放到childNodes末尾
-- insertBefore 放在某节点之前
+- insertBefore(newNode, someNode) 放在某节点之前
 - replaceChild
 - removeChild
 - cloneNode
@@ -155,12 +158,12 @@ attributes 属性
 没有子节点
 操作文本
 
-- appendData
-- deleteData
-- insertData
-- replaceData
-- splitText
-- substringData
+- appendData(text)
+- deleteData(offset, count)
+- insertData(offset, text)
+- replaceData(offset, count, text)
+- splitText(offset)
+- substringData(offset, count)
 - length 
 
 其他方法 
@@ -392,7 +395,7 @@ style对象的属性
 - getComputedStyle // IE 不支持，IE用currentStyle
 
 ##### 操作样式表
-- stylesheets
+- styleSheets
 	- cssRules 
 	- insertRule()
 	- deleteRule()
