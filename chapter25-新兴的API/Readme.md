@@ -21,5 +21,29 @@
 核心是window.performance对象。performance.timing记录不同事件产生的不同的时间值。  
 
 #### Web Workers
-异步执行代码，避免阻塞用户界面。它所执行的代码完全在另一个作用域中。全局对象是worker本身。
+异步执行代码，避免阻塞用户界面。  
+它所执行的代码完全在另一个作用域中。不能访问window    
+全局对象是worker本身。
+
+创建：
+```
+  var worker = new Worker(a.js) // 下载a.js，接收到消息再执行
+  worker.postMessage('hi, i am window') // 给worker传递消息
+  worker.onMessage = function (e) {  // 接收worker发来的消息
+    console.log(e.data);
+  }
+
+```
+worker 与 页面通信
+```
+// a.js
+  self.onmessage = function(e) { // 接收来自页面的消息
+    // ...
+  }
+  self.postMessage('hi, i am worker') // 发送消息给页面
+```
+
+终止
+外部`worker.terminate()` or 内部`self.close()`
+
 

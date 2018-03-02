@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+    var work = new Worker('a.js');
+    work.postMessage('hi, I am window!');
+    work.onmessage = function (event) {
+        console.log(event.data)
+    }
+</script>
+</body>
+</html>
