@@ -16,6 +16,8 @@
 读取部分文件 slice()  
 读取拖放的文件 event.dataTransfer.files  
 上传文件 // (new FormData()).append("file"+ i, file[i])
+- 文件成功加载后会触发load事件
+- 中断读取过程，abort()
 
 #### Web 计时
 核心是window.performance对象。performance.timing记录不同事件产生的不同的时间值。  
